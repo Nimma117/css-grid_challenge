@@ -153,7 +153,9 @@ main .container .upper-container .upper-left .text .reading button{
 }
 
 main .container .upper-container .upper-left .text .reading button:hover{
-  background-color: hsl(240, 100%, 5%) }
+  background-color: hsl(240, 100%, 5%);
+color: white; 
+}
 
 main .container .upper-container .upper-right{
   grid-column: 3 / span 1;
@@ -252,46 +254,107 @@ main .container .bottom-container .topic .under p{
 }
 
 
+/*Android and Iphone*/
+@media (min-width: 320px) {
+.container {
+  width: 90%;
+}
 
+main .container .upper-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
+main .container .upper-container .upper-left,
+main .container .upper-container .upper-right {
+  width: 100%;
+}
 
+main .container .bottom-container {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
 
+main .container .bottom-container .topic img {
+  width: 80px;
+}
 
+/* Tablets and Ipad */
+@media (min-width: 768px) {
+  main .container .upper-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 
+  main .container .upper-container .upper-left {
+    grid-column: 1 / span 2;
+  }
 
+  main .container .upper-container .upper-right {
+    grid-column: 3 / span 1;
+  }
 
+  main .container .bottom-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+/*Computer and Laptops*/
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+  }
 
+  main .container .bottom-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
+/*Adding Animation part */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.upper-left, .upper-right, .bottom-container .topic {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
 
+.upper-left {
+  animation-delay: 0.3s;
+}
+.upper-right {
+  animation-delay: 0.6s;
+}
+.bottom-container .topic {
+  animation-delay: 0.9s;
+}
 
+/* Button move*/
+button {
+  transition: all 0.3s ease;
+}
 
+button:hover {
+  transform: scale(1.05);
+  background-color: hsl(240, 100%, 5%);
+  color: white;
+}
 
+.upper-right .text h3,
+.bottom-container .topic .under h4 {
+  transition: transform 0.2s ease-in-out;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.upper-right .text h3:hover,
+.bottom-container .topic .under h4:hover {
+  transform: translateX(5px);
+}
